@@ -1,4 +1,4 @@
-# Collect Balls Game
+# VR Ball Collector
 
 This is a Virtual Reality Unity project where the player collects balls.
 
