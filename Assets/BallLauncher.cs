@@ -8,6 +8,10 @@ public class BallLauncher : MonoBehaviour
     private GameObject currentBall;
     public static bool ballThrown = false;
 
+    [Header("Audio Settings")]
+    public AudioSource audioSource;
+    public AudioClip spawnSound;
+
     public void SpawnBall()
     {
         if (currentBall != null) Destroy(currentBall);
@@ -18,6 +22,9 @@ public class BallLauncher : MonoBehaviour
 
         ballThrown = false;
         currentBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
+
+        if (audioSource != null && spawnSound != null)
+            audioSource.PlayOneShot(spawnSound);
 
         XRGrabInteractable grab = currentBall.GetComponent<XRGrabInteractable>();
         if (grab != null)
